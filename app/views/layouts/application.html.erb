@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebWeveloperCV.com</title>
+  <%= include_stylesheets :common %>
+  <%= include_javascripts :common %>
+  <%= yield :head %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div data-role="page" <%= (defined? @page_class).nil? ? "" : "class='#{@page_class}'" %>> 
+    <% unless notice.nil? %>
+      <div class="notice hidden"><%= notice %></div>
+    <% end %>
+    <% unless alert.nil? %>
+      <div class="alert hidden"><%= alert %></div>
+    <% end %>    
+    <%= yield %>    
+  </div>
+</body>
+</html>
