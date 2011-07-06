@@ -8,8 +8,10 @@
 
 paths:
   - public/javascripts/*.js
-  - public/javascripts/utils/*.js  
-  - public/stylesheets/*.css        
+  - public/javascripts/pages/*.js
+  - public/javascripts/test/*.js
+  - public/stylesheets/*.css
+  - public/stylesheets/pages/*.css
 
 exclude_paths:
 

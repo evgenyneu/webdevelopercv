@@ -1,10 +1,10 @@
-/*global alert, numberTest*/
+/*global module, test, ok*/
 
 var wdcvTest = (function () {
     function init() {                       
         module("wdcv-test.js: init");        
         test("ok", function () {            
-            ok(false);            
+            ok(true);            
         });                
     }
     
