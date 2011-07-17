@@ -11,7 +11,7 @@ set :git_shallow_clone, 1
 
 
 # deploy config
-set :deploy_to, "/home/ubuntu/webdevelopercv.ru"
+set :deploy_to, "/home/ubuntu/webdevelopercv.com"
 
 
 role :web, domain                          # Your HTTP server, Apache/etc
