@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: Title 
+  permalink: title-1
+  body: Body text
+
+two:
+  title: This is the title 2
+  permalink: someurl/this-is-the-title2
+  body: Text for the body

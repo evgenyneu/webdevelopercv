@@ -1,7 +1,13 @@
 Wdcv::Application.routes.draw do  
+  root :to => "posts#index"
+  
+  resources :posts
+
   get "test/index"
 
   get "test" => "test#index"
+  
+  match ':permalink' => 'posts#show', :permalink => /.+/, :method => :get
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
