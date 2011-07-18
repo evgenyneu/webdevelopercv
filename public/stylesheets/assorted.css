@@ -128,7 +128,7 @@ p.left{
 /* --- Panels and messages --- */
 .pageMessage .ui-icon{
     background: #666;
-    background: rgba(0,0,0,.4);
+    background: rgba(0, 0, 0, 0.4);
     background-image: url(/images/jquery.mobile/icons-18-white.png);
     background-position: -72px 50%;
     width: 18px;

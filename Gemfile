@@ -5,10 +5,10 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'win32-open3-19', :platforms => [:mswin, :mingw]
 gem "jammit"
-gem 'rake', '~> 0.8.7'
+gem 'rake'
 gem 'jslint_on_rails'
 gem 'capistrano'
 gem "mongoid"

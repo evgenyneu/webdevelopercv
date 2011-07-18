@@ -1,7 +1,7 @@
-/*global $, wdcv */
+/*global $, wdcv, evgnJQM, window, disqus_shortname, DISQUS */
 var wdcvDisqus = (function () {
-    var isScriptLoaded = false;
-    var threadId = "disqus_thread";   
+    var isScriptLoaded = false,
+        threadId = "disqus_thread";   
 
     function show($page) {                
         if (!$page.hasClass('posts-show-page')) {
@@ -12,19 +12,19 @@ var wdcvDisqus = (function () {
             postId = pageData.postId,
             postPermalink = pageData.postPermalink;
          
-        if (postId === undefined || postPermalink === undefined){
+        if (postId === undefined || postPermalink === undefined) {
             evgnJQM.showMessage('Error showing comments: postId or postPermalink is missing', true);
         }  
         
-        $("#" + threadId).each(function(){
-            var $disqus_thread = $(this);
-            var $parent = $disqus_thread.parents(".posts-show-page:first");            
-            $disqus_thread.attr('id',threadId + $parent.attr('id'));
+        $("#" + threadId).each(function () {
+            var $disqus_thread = $(this),
+                $parent = $disqus_thread.parents(".posts-show-page:first");            
+            $disqus_thread.attr('id', threadId + $parent.attr('id'));
         });                
                     
-        $("." + threadId,$page).attr('id',threadId);        
+        $("." + threadId, $page).attr('id', threadId);        
                                 
-        if (!isScriptLoaded){
+        if (!isScriptLoaded) {
             window.disqus_identifier = postId;
             window.disqus_url = wdcv.data.url + postPermalink;
             $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js', function () {
@@ -34,12 +34,12 @@ var wdcvDisqus = (function () {
         }
         
         DISQUS.reset({
-          reload: true,
-          config: function () {  
-            this.page.identifier = postId;  
-            this.page.url = wdcv.data.url + postPermalink;
-          }
-        });
+                reload: true,
+                config: function () {  
+                    this.page.identifier = postId;  
+                    this.page.url = wdcv.data.url + postPermalink;
+                }
+            });
     }
 
     return {

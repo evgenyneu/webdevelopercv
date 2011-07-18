@@ -1,4 +1,14 @@
-class Post < ActiveRecord::Base
+class Post 
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  
+  field :title, type: String
+  field :permalink, type: String
+  field :body, type: String
+  
+  index :title, unique: true
+  index :permalink, unique: true
+  
   validates :title, :presence => true, :uniqueness => true
   validates :body, :presence => true
   
