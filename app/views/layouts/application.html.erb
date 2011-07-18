@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WebWeveloperCV.com</title>
   <%= include_stylesheets :common %>
   <%= include_javascripts :common %>
   <%= yield :head %>
   <%= csrf_meta_tag %>
+  <% if Rails.env != 'production' %>
+  <script>
+    var disqus_developer = 1;
+  </script>
+  <% end %>
 </head>
 <body>
-  <div data-role="page" <%= (defined? @page_class).nil? ? "" : "class='#{@page_class}'" %>> 
+  <div id="<%= @random_str %>" data-role="page"<%= (defined? @page_class).nil? ? "" : " class='#{@page_class}'" %><%= (defined? @page_attr).nil? ? "" : " #{@page_attr}" %>> 
     <% unless notice.nil? %>
       <div class="notice hidden"><%= notice %></div>
     <% end %>

@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% 
+  @page_class = "posts-show-page" 
+  @page_attr = "data-post-id='#{@post.id}' data-post-permalink='#{@post.permalink}'"
+  %>
 
 <p>
   <b>Title:</b>
@@ -14,6 +17,26 @@
   <b>Body:</b>
   <%= @post.body %>
 </p>
+
+<div class="disqus_thread"></div>
+
+<script type="text/javascript">
+    //var disqus_shovarrtname = 'webdevelopersblog';
+    //var disqus_developer = 1;
+
+    //var disqus_identifier = '<%= @post.id %>';
+    //var disqus_url = 'http://webdevelopercv.com/<%= @post.permalink %>';
+    
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    //(function() {
+    //  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    //  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    //  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    //})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

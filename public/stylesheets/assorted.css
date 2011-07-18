@@ -1,1 +1,221 @@
 @charset "UTF-8";
+
+/* --- Text Size and Fonts properties --- */
+.bold{
+    font-weight:bold;
+}
+.noBold{
+    font-weight:normal;
+}
+.huge{
+    font-size:2em;
+}
+.big{
+    font-size:1.5em;
+}
+.medium{
+    font-size:1.25em;
+}
+.small{
+    font-size:0.85em;
+}
+.tiny{
+    font-size:0.6em;
+}
+.lineThrough{
+    text-decoration: line-through;
+}
+.noBorder{
+    border:none;
+}
+/* --- Text Size and Fonts properties END --- */
+
+/* --- Input width --- */
+input.inputSmall{
+    width: 2em;
+}
+input.inputNormal{
+    width: 5em;
+}
+/* --- Input width END --- */
+
+/* --- Text align --- */
+.centered,
+p.centered{
+    text-align:center;
+}
+.centered table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.right,
+p.right{
+    text-align:right;
+}
+.left,
+p.left{
+    text-align:left;
+}
+.bottom{
+    vertical-align:bottom;
+}
+.verticalMiddle{
+    vertical-align:middle;     
+}
+/* --- Text align END --- */
+
+/* --- Visibility and float  --- */
+.clear{
+    clear:both;
+    height: 0px;
+    overflow: hidden;     
+}
+.clearfix:after { 
+    visibility: hidden; 
+    display: block; 
+    font-size: 0; 
+    content: " "; 
+    clear: both; 
+    height: 0; 
+}
+.clearfix { 
+    display: inline-block; 
+}
+.clearfix { 
+    display: block; 
+    zoom: 1; 
+}
+.floatLeft {
+    float: left;    
+}
+.floatRight{
+    float: right;
+}
+.hidden{
+    display:none;
+}
+.visibilityHidden{
+    visibility:hidden;
+}
+/* --- Visibility and float END --- */
+
+/* --- Assorted --- */
+.cursorPointer{
+    cursor:pointer;
+}
+.absolute{
+    position:absolute;
+    top:0;
+    left:0;  
+}
+.relative{
+    position:relative;
+}
+.inline {
+    display: inline;
+}
+.noWrap{
+    white-space:nowrap;
+}
+.lineHeight1{
+    line-height:1;
+}
+.humble{
+    color:#6E6F6E;    
+}
+/* --- Assorted END --- */
+
+/* --- Panels and messages --- */
+.pageMessage .ui-icon{
+    background: #666;
+    background: rgba(0,0,0,.4);
+    background-image: url(/images/jquery.mobile/icons-18-white.png);
+    background-position: -72px 50%;
+    width: 18px;
+    height: 18px;
+    right: 5px;
+    top: 4px;
+    position:absolute;
+}
+
+/* --- Padding --- */
+.paddingLeftSmall{
+    padding-left:10px;
+}
+.paddingRightSmall{
+    padding-right:10px;
+}
+.paddingTopSmall{
+    padding-top:10px;
+}
+.paddingBottomSmall{
+    padding-bottom:10px;
+}
+.paddingLeft{
+    padding-left:20px;
+}
+.paddingRight{
+    padding-right:20px;
+}
+.paddingTop{
+    padding-top:20px;
+}
+.paddingBottom{
+    padding-bottom:20px;
+}
+/* --- Padding END --- */
+
+/* --- Margin --- */
+.marginLeftSmall{
+    margin-left:10px;
+}
+.marginRightSmall{
+    margin-right:10px;
+}
+.marginTopSmall{
+    margin-top:10px;
+}
+.marginBottomSmall{
+    margin-bottom:10px;
+}
+.marginLeft{
+    margin-left:20px;
+}
+.marginRight{
+    margin-right:20px;
+}
+.marginTop{
+    margin-top:20px;
+}
+.marginBottom{
+    margin-bottom:20px;
+}
+/* --- Margin END --- */
+
+/* --- No padding & margin --- */
+.first { 
+    margin-left:0; 
+    padding-left:0;
+}
+.last { 
+    margin-right:0; 
+    padding-right:0; 
+}
+.top { 
+    margin-top:0; 
+    padding-top:0; 
+}
+.bottom { 
+    margin-bottom:0; 
+    padding-bottom:0; 
+}
+/* --- No padding & margin END --- */
+
+/* --- Width and height --- */
+.width100{
+    width:100%;
+}
+.height100{
+    height:100%;
+}
+/* --- Width and height END --- */

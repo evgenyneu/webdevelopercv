@@ -6,7 +6,7 @@ javascripts:
     - public/javascripts/libs/jquery.min.js    
     - public/javascripts/libs/jquery_ujs.js   
     - public/javascripts/libs/jquery.mobile.js   
-    - public/javascripts/wdcv.js
+    - public/javascripts/*.js   
   test:
     - public/javascripts/libs/qunit-git.js
     - public/javascripts/test/wdcv-test.js

@@ -11,6 +11,8 @@ gem "jammit"
 gem 'rake', '~> 0.8.7'
 gem 'jslint_on_rails'
 gem 'capistrano'
+gem "mongoid"
+gem "bson_ext"
 
 # Use unicorn as the web server
 # gem 'unicorn'
