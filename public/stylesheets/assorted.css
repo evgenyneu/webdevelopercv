@@ -219,3 +219,9 @@ p.left{
     height:100%;
 }
 /* --- Width and height END --- */
+
+/* --- jQM Overrides --- */
+a.ui-link:hover{
+    color: #175782;
+}
+/* --- jQM Overrides END --- */

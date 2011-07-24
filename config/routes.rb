@@ -1,13 +1,15 @@
 Wdcv::Application.routes.draw do  
+  devise_for :users
+
   root :to => "posts#index"
   
-  resources :posts
+  resources :posts, :except => :show
 
   get "test/index"
 
   get "test" => "test#index"
   
-  match ':permalink' => 'posts#show', :permalink => /.+/, :method => :get
+  match '*permalink' => 'posts#show', :via => :get
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

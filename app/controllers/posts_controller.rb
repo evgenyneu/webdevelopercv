@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController < AuthorisedController
   # GET /posts
   # GET /posts.xml
   def index
@@ -12,18 +12,16 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.xml
-  def show    
-    if params.include? "permalink"
-      @post = Post.find_by_permalink!(params[:permalink])  
-    else
-      @post = Post.find(params[:id])  
-    end          
+  def show
+    @post = Post.by_permalink params[:permalink]
+    
+    not_found if @post.nil?
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @post }
     end
-  end   
+  end
 
   # GET /posts/new
   # GET /posts/new.xml

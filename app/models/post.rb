@@ -17,4 +17,8 @@ class Post
   def before_saving_post    
     self.permalink = self.title.z_to_url if self.permalink.empty?
   end
+  
+  def self.by_permalink(permalink)
+    where(:permalink => permalink).first
+  end
 end

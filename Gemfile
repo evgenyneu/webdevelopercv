@@ -13,6 +13,8 @@ gem 'jslint_on_rails'
 gem 'capistrano'
 gem "mongoid"
 gem "bson_ext"
+gem "devise"
+gem "cancan"
 
 # Use unicorn as the web server
 # gem 'unicorn'

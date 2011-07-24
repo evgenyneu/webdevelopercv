@@ -16,13 +16,24 @@
 </head>
 <body>
   <div id="<%= @random_str %>" data-role="page"<%= (defined? @page_class).nil? ? "" : " class='#{@page_class}'" %><%= (defined? @page_attr).nil? ? "" : " #{@page_attr}" %>> 
-    <% unless notice.nil? %>
-      <div class="notice hidden"><%= notice %></div>
+    <header class="wdcv-header clearfix">
+      <hgroup>
+        <h1 class="wdcv-site-logo top bottom"><a href="/">WebDeveloperCV.com</a></h1>
+        <h2 class="wdcv-site-description top bottom small"><a href="/">Evgeny Neumerzhitskiy's personal bits</a></h2>
+      </hgroup>      
+    </header> 
+    <div class="wdcv-content">
+      <% unless notice.nil? %>
+        <div class="notice hidden"><%= notice %></div>
+      <% end %>
+      <% unless alert.nil? %>
+        <div class="alert hidden"><%= alert %></div>
+      <% end %>    
+      <%= yield %>
+    </div>
+    <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <% end %>
-    <% unless alert.nil? %>
-      <div class="alert hidden"><%= alert %></div>
-    <% end %>    
-    <%= yield %>    
   </div>
 </body>
 </html>
