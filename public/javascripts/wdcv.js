@@ -1,11 +1,12 @@
-/*global $, evgnJQM, wdcvDisqus */
+/*global $, evgnJQM, wdcvDisqus, obscureEmail */
 var wdcv = (function () {    
     var data = {
         url: 'http://webdevelopercv.com/'
     };
     
     function init() {
-        evgnJQM.init();              
+        evgnJQM.init();
+        obscureEmail.init('tvgtulutnjgorkyqcmo');
     }
     
     return {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WebWeveloperCV.com</title>
+  <title><%= (defined? @page_title).nil? ? "WebWeveloperCV.com" : @page_title %></title>
   <%= include_stylesheets :common %>
   <%= include_javascripts :common %>
   <%= yield :head %>
@@ -16,24 +16,26 @@
 </head>
 <body>
   <div id="<%= @random_str %>" data-role="page"<%= (defined? @page_class).nil? ? "" : " class='#{@page_class}'" %><%= (defined? @page_attr).nil? ? "" : " #{@page_attr}" %>> 
-    <header class="wdcv-header clearfix">
-      <hgroup>
-        <h1 class="wdcv-site-logo top bottom"><a href="/">WebDeveloperCV.com</a></h1>
-        <h2 class="wdcv-site-description top bottom small"><a href="/">My bits</a></h2>
-      </hgroup>      
-    </header> 
-    <div class="wdcv-content">
-      <% unless notice.nil? %>
-        <div class="notice hidden"><%= notice %></div>
-      <% end %>
-      <% unless alert.nil? %>
-        <div class="alert hidden"><%= alert %></div>
-      <% end %>    
-      <%= yield %>
-    </div>
-    <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <% unless notice.nil? %>
+      <div class="notice hidden"><%= notice %></div>
     <% end %>
+    <% unless alert.nil? %>
+      <div class="alert hidden"><%= alert %></div>
+    <% end %>    
+    <div data-role="header" data-theme="e">
+      <a href="/" data-icon="home" data-iconpos="notext" title="Home"></a>      
+      <h2 class="centered"><a href="/">WebDeveloperCV.com</a></h2>
+      <%= yield :header %>
+    </div>    
+    <div data-role="content" data-theme="a" class="wdcv-content">        
+        <%= yield %>                  
+    </div>
+    <div data-role="footer" data-theme="e">        
+      <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, :class=>"panel-right absolute", :method => :delete, "data-icon" => "back", "data-iconpos" => "right", "data-ajax" => "false", "title"=>"Sign out" %>
+      <% end %>
+      <h2 class="centered">©2011 <a href="#" class="Cmuercehot">Evgeny Neumerzhitskiy</a></h2>        
+    </div>
   </div>
 </body>
 </html>

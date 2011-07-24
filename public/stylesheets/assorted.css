@@ -104,9 +104,7 @@ p.left{
     cursor:pointer;
 }
 .absolute{
-    position:absolute;
-    top:0;
-    left:0;  
+    position:absolute;   
 }
 .relative{
     position:relative;
@@ -223,5 +221,12 @@ p.left{
 /* --- jQM Overrides --- */
 a.ui-link:hover{
     color: #175782;
+}
+.ui-header .ui-title,
+.ui-footer .ui-title{
+    margin-left: 0;
+    margin-right: 0;
+    text-overflow: none;
+    overflow:visible;
 }
 /* --- jQM Overrides END --- */

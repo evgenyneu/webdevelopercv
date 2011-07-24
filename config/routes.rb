@@ -1,13 +1,15 @@
 Wdcv::Application.routes.draw do  
   devise_for :users
 
-  root :to => "posts#index"
+  root :to => "home#index"
   
   resources :posts, :except => :show
 
   get "test/index"
 
   get "test" => "test#index"
+  
+  get "projects" => "home#projects"
   
   match '*permalink' => 'posts#show', :via => :get
   

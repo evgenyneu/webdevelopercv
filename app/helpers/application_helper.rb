@@ -1,5 +1,2 @@
-module ApplicationHelper
-  def permalink(post)
-    "/" + post.permalink
-  end
+module ApplicationHelper  
 end

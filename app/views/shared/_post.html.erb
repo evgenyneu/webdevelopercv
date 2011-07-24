@@ -1,0 +1,17 @@
+<% if @post.nil? %>
+  <h1>Post not found</h1>
+<% else %>
+  <% 
+    @page_class = "post-show-page" 
+    @page_title = @post.title
+  %>
+
+  <%= raw(@post.body) %> 
+    
+  <% if can? :update, @post %>
+    <% content_for :header do %>
+      <%= link_to 'Edit post', edit_post_path(@post), "data-role"=>"button", "data-icon"=>"gear", "data-iconpos" => "right", "data-inline"=>"true", "data-ajax" => "false" %>
+    <% end %>   
+  <% end %>
+  
+<% end %>

@@ -1,0 +1,17 @@
+<ul data-role="listview" data-theme="d">  
+  <% @posts.each do |post| %>
+    <li>
+      <a href="<%= post.permalink %>">
+        <h1><%= post.title %></h1>
+        <% if can? :destroy, post %>
+          <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, "data-icon" => "delete", "data-theme" => "c", "data-ajax"=>"false" %>
+        <% end %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<% if can? :create, @post %>
+  <% content_for :header do %>
+    <%= link_to 'New post', new_post_path, "data-role"=>"button", "data-icon"=>"plus", "data-iconpos" => "right", "data-inline"=>"true", "data-ajax" => "false" %>
+  <% end %>
+<% end %>
