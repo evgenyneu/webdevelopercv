@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= (defined? @page_title).nil? ? "WebWeveloperCV.com" : @page_title %></title>
+  <title><%= (defined? @page_title).nil? ? "WebWeveloperCV.com" : @page_title %></title>  
   <%= include_stylesheets :common %>
-  <%= include_javascripts :common %>
+  <%= include_javascripts :common %>  
   <%= yield :head %>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> 
   <%= csrf_meta_tag %>
   <% if Rails.env != 'production1' %>
   <script>
