@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= (defined? @page_title).nil? ? "WebWeveloperCV.com" : @page_title %></title>  
+  <title><%= ((defined? @page_title).nil? || @page_title.empty?) ? "WebWeveloperCV.com" : @page_title %></title>  
   <%= include_stylesheets :common %>
   <%= include_javascripts :common %>  
   <%= yield :head %>

@@ -3,6 +3,7 @@
     <li>
       <a href="<%= post.permalink %>">
         <h1><%= post.title %></h1>
+        <p class="humble"><%= posted_on_message(post.created_at) %></p>
         <% if can? :destroy, post %>
           <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, "data-icon" => "delete", "data-theme" => "c", "data-ajax"=>"false" %>
         <% end %>

@@ -9,7 +9,6 @@ class Post
   index :title, unique: true
   index :permalink, unique: true
   
-  validates :title, :presence => true, :uniqueness => true
   validates :body, :presence => true
   
   before_save :before_saving_post

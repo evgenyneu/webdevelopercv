@@ -6,6 +6,10 @@
     @page_title = @post.title
   %>
 
+  <% unless @post.title.blank? %>
+    <h1 class="bottom"><%= @post.title %></h1>
+    <p><%= posted_on_message(@post.created_at) %></p>
+  <% end %>
   <%= raw(@post.body) %> 
     
   <% if can? :update, @post %>
