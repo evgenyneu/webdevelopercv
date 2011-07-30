@@ -27,7 +27,7 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   
   desc "Jammit: combine and minify javascript and css files."  
