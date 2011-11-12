@@ -34,7 +34,7 @@ namespace :deploy do
 
   desc "Create symlinks"
   task :generate_symlinks do
-    run %Q{ln -s #{shared_path}/assets #{release_path}/public/assets}
+    run %Q{mkdir -p #{shared_path}/assets && ln -s #{shared_path}/assets #{release_path}/public/assets}
   end
 end
 
