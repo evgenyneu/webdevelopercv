@@ -29,11 +29,6 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-  
-  desc "Jammit: combine and minify javascript and css files."  
-  task :generate_assets, :roles => :web do
-    run("cd #{deploy_to}/current && jammit")  
-  end
 end
 
 namespace :rake do  
@@ -44,4 +39,3 @@ namespace :rake do
   end  
 end
 
-after 'deploy:symlink', 'deploy:generate_assets'
