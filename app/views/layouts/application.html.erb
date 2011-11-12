@@ -4,16 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= ((defined? @page_title).nil? || @page_title.empty?) ? "WebWeveloperCV.com" : @page_title %></title>  
-  <%= include_stylesheets :common %>
-  <%= include_javascripts :common %>  
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>  
   <%= yield :head %>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> 
   <%= csrf_meta_tag %>
-  <% if Rails.env != 'production1' %>
-  <script>
-    var disqus_developer = 1;
-  </script>
-  <% end %>
 </head>
 <body>
   <div id="<%= @random_str %>" data-role="page"<%= (defined? @page_class).nil? ? "" : " class='#{@page_class}'" %><%= (defined? @page_attr).nil? ? "" : " #{@page_attr}" %>> 
