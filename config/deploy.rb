@@ -29,6 +29,11 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+
+  desc "Create symlinks"
+  task :generate_symlinks do
+    run %Q{ln -s #{shared_path}/assets #{release_path}/public/assets}
+  end
 end
 
 namespace :rake do  
@@ -39,3 +44,5 @@ namespace :rake do
   end  
 end
 
+after "deploy:update", "deploy:cleanup"
+after 'deploy:symlink', 'deploy:generate_symlinks'
