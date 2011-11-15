@@ -12,17 +12,25 @@
   <% end %>
 
   <div class="paddingBottomSmall">
+    <%= f.label :date %>
+    <%= f.text_field :date, "data-role" => "datebox" %>
+  </div>
+
+  <div class="paddingBottomSmall">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>  
+
   <div class="paddingBottomSmall">
     <%= f.label :permalink %>
     <%= f.text_field :permalink %>
   </div>
+  
   <div class="paddingBottomSmall">
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

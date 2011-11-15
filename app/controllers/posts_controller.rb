@@ -2,7 +2,7 @@ class PostsController < AuthorisedController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.sort_posts
 
     respond_to do |format|
       format.html # index.html.erb

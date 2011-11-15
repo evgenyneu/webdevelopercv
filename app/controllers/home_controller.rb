@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
   
   def projects
-    @posts = Post.where(permalink: /^\/projects\//i)
+    @posts = Post.where(permalink: /^\/projects\//i).sort_posts
     respond_to do |format|
       format.html 
       format.xml  { render :xml => @posts }
