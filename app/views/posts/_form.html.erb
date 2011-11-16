@@ -1,4 +1,7 @@
 <%= form_for(@post, :html => {"data-ajax"=>"false"}) do |f| %>
+  <% if params.include?(:return_url) %>
+    <%= hidden_field_tag :return_url, params[:return_url] %>
+  <% end %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>

@@ -224,9 +224,10 @@ a.ui-link:hover{
 }
 .ui-header .ui-title,
 .ui-footer .ui-title{
-    margin-left: 0;
-    margin-right: 0;
+    margin-left:0;
+    margin-right:0;
     text-overflow: none;
     overflow:visible;
+    font-weight: bold;
 }
 /* --- jQM Overrides END --- */

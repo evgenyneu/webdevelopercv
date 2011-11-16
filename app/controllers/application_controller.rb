@@ -6,7 +6,12 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end    
 
+  def return_url(default_url)
+    params[:return_url] || default_url
+  end
+
   protected 
+
   def make_random_str
     @random_str = "rnd-#{rand(10000000)}-#{rand(10000000)}";    
   end

@@ -30,8 +30,12 @@
       <div class="alert hidden"><%= alert %></div>
     <% end %>    
     <div data-role="header" data-theme="e">
-      <a href="/" data-icon="home" data-iconpos="notext" title="Home"></a>      
-      <h2 class="centered"><a href="/">WebDeveloperCV.com</a></h2>
+      <% if content_for?(:custom_header) %>
+        <%= yield(:custom_header) %>
+      <% elsif %>
+        <a href="/" data-icon="home" data-iconpos="notext" title="Home"></a>      
+        <h2 class="centered"><a href="/">WebDeveloperCV.com</a></h2>
+      <% end %>   
       <%= yield :header %>
     </div>    
     <div data-role="content" data-theme="a" class="wdcv-content">        

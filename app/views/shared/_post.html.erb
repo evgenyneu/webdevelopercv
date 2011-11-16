@@ -10,12 +10,21 @@
     <h1 class="bottom"><%= @post.title %></h1>
     <p><%= posted_on_message(@post.created_at) %></p>
   <% end %>
-  <%= raw(@post.body) %> 
-    
+  <%= raw(@post.body) %>
+  <br />
   <% if can? :update, @post %>
-    <% content_for :header do %>
-      <%= link_to 'Edit post', edit_post_path(@post), "data-role"=>"button", "data-icon"=>"gear", "data-iconpos" => "right", "data-inline"=>"true", "data-ajax" => "false" %>
-    <% end %>   
+    <%= link_to 'Edit', edit_post_path(@post, :return_url=>request.env["PATH_INFO"]), "data-role"=>"button", "data-iconpos"=>"notext", "data-icon"=>"gear", "data-theme" => "e", "data-inline"=>"true", "data-ajax" => "false" %>
+  <% end %>
+
+  <% if can? :destroy, @post %>
+    <%= link_to 'Delete', @post, :confirm => 'Are you sure you want to delete this post?', "data-role"=>"button", "data-iconpos"=>"notext", :method => :delete, "data-icon" => "delete", "data-theme" => "e","data-inline"=>"true", "data-ajax"=>"false" %>
+  <% end %>
+
+  <% if @post.permalink =~ /^\/projects/ %>  
+    <% content_for :custom_header do %>
+      <a href="/projects" data-icon="arrow-l" data-iconpos="notext" title="Projects"></a>      
+      <h2 class="centered"><a href="/">WebDeveloperCV.com</a></h2>
+    <% end %>
   <% end %>
   
 <% end %>

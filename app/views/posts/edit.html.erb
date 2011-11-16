@@ -1,5 +1,7 @@
 <% @page_class = "post-edit-page" %>
-
-<h1>Editing post</h1>
+<% content_for :custom_header do %>
+  <a href="<%= return_url "/projects" %>" data-icon="arrow-l" data-iconpos="notext" title="Back"></a>      
+  <h1>Update post</h1>
+<% end %>
 
 <%= render 'form' %>
