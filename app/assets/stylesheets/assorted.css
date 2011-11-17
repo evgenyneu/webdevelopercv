@@ -227,8 +227,9 @@ p.left{
 /* --- Width and height END --- */
 
 /* --- jQM Overrides --- */
-a.ui-link:hover{
-    color: #1774B2 !important;
+.ui-bar-e a.ui-link:hover,
+.ui-body-a a.ui-link:hover{
+    color: #1774B2;
 }
 .ui-header .ui-title,
 .ui-footer .ui-title{
