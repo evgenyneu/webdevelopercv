@@ -91,6 +91,14 @@ p.left{
 .floatRight{
     float: right;
 }
+.imgLeft {
+  float:left;
+  margin: 0 2em 1.5em 0;
+}
+.imgRight {
+  float: right;
+  margin: 0 0 20px 40px;
+}
 .hidden{
     display:none;
 }

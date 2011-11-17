@@ -10,6 +10,14 @@ class Post
   index :permalink, unique: true
 
   attr_writer :date
+
+  def body_for_html(page_id)
+    if body_for_html_data.nil? 
+      body_for_html_data = self.body.gsub('***this-page-id***',page_id) unless self.body.nil?
+      body_for_html_data ||= ""
+    end
+    body_for_html_data
+  end
   
   validates :body, :presence => true
   
@@ -36,6 +44,8 @@ class Post
   end
 
   private
+
+  attr_accessor :body_for_html_data
 
   def parse_created_at
     begin

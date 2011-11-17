@@ -9,6 +9,6 @@
 //= require evgn-jqm 
 //= require obscure-email 
 //= require jquery.mobile
-//= require caption-inside
 //= require evgn-str
 //= require wdcv
+//= require javascript-game

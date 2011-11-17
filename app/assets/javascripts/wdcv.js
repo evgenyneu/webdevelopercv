@@ -5,7 +5,6 @@ var wdcv = (function () {
     };
     
     function init() {
-        evgnJQM.init();
         obscureEmail.init('tvgtulutnjgorkyqcmo');
     }
     

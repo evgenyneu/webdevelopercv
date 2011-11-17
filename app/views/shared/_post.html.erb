@@ -10,8 +10,7 @@
     <h1 class="bottom"><%= @post.title %></h1>
     <p><%= posted_on_message(@post.created_at) %></p>
   <% end %>
-  <%= raw(@post.body) %>
-  <br />
+  <%= raw(@post.body_for_html(@random_str)) %>
   <% if can? :update, @post %>
     <%= link_to 'Edit', edit_post_path(@post, :return_url=>request.env["PATH_INFO"]), "data-role"=>"button", "data-iconpos"=>"notext", "data-icon"=>"gear", "data-theme" => "e", "data-inline"=>"true", "data-ajax" => "false" %>
   <% end %>
