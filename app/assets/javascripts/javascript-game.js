@@ -278,16 +278,16 @@ var diceGameEvg = (function () {
 
     function bounceAnimate(elemetsToBounce, changeProperty, bounceAnimationSpeed, 
             bounceAnimationTime, bounceAnimationShift, onFinished, additionalAnimation) {
-        if (bounceAnimationSpeed === undefined) {
+        if (bounceAnimationSpeed === null || bounceAnimationSpeed === undefined) {
             bounceAnimationSpeed = 100; //speed of 'bounce' animation
         }
-        if (bounceAnimationShift === undefined) {
+        if (bounceAnimationShift === null || bounceAnimationShift === undefined) {
             bounceAnimationShift = 3; //The bounce shift
         }
-        if (bounceAnimationTime === undefined) {
+        if (bounceAnimationTime === null || bounceAnimationTime === undefined) {
             bounceAnimationTime = 1500;
         }
-        if (changeProperty === undefined) {
+        if (changeProperty === null || changeProperty === undefined) {
             changeProperty = "marginTop";
         }
         var properties = changeProperty.split(','),
@@ -421,7 +421,7 @@ var diceGameEvg = (function () {
     }
 
     function rollDice(diceElement, onFinishedFunc, isMyDice) {
-        if (diceElement !== null) {
+        if (diceElement !== undefined) {
             //start rolling
             diceToRoll = diceElement;
             iRollDiceDelay = 30 + Math.floor(Math.random() * 40);
@@ -711,7 +711,7 @@ var diceGameEvg = (function () {
     }
 
     function init() {
-        if ($ch_outer !== undefined) {
+        if ($ch_outer !== null) {
             return; //already initiated
         }
         $ch_outer = $("#ch_outer");
@@ -919,7 +919,7 @@ var diceGameEvg = (function () {
                         if (iPos < 0) {
                             iPosActual = 28 + iPos;
                         }
-                        if (piecesPositions[iPosActual] === null) {
+                        if (piecesPositions[iPosActual] === null || piecesPositions[iPosActual] === undefined) {
                             continue;
                         }
 
@@ -1135,7 +1135,7 @@ var diceGameEvg = (function () {
                 //make the piece that can move clickable
                 reminderAnimationTimer = setInterval(reminderAnimation, 5000);
                 $.each(piecesCanMove, function () {
-                    piece = $(this); 
+                    piece = this; 
                     $(piece.element).addClass('hoverable').hover(
                           function () {
                               setPieceHoverImage($(this), true);
@@ -1182,7 +1182,7 @@ var diceGameEvg = (function () {
             gameOverDlg;
 
         $.each(players, function () {
-            player = $(this); 
+            player = this; 
             bPlayerWin = true;
             for (iPiece = 0; iPiece < player.pieces.length; iPiece += 1) {
                 piece = player.pieces[iPiece];
