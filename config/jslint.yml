@@ -7,12 +7,11 @@
 #   rake jslint paths=path1,path2,... exclude_paths=library1,library2,...
 
 paths:
-   - app/assets/javascripts/javascript-game.js
-#  - app/assets/javascripts/*.js
-#  - app/assets/javascripts/test/*.js
-#  - lib/assets/javascripts/*.js
-#  - public/assets/stylesheets/*.css
-#  - public/assets/stylesheets/pages/*.css
+  - app/assets/javascripts/*.js
+  - app/assets/javascripts/test/*.js
+  - lib/assets/javascripts/*.js
+  - public/assets/stylesheets/*.css
+  - public/assets/stylesheets/pages/*.css
 
 exclude_paths:
 
@@ -27,7 +26,7 @@ bitwise:  true      # true if bitwise operators should not be allowed
 newcap:   true      # true if Initial Caps must be used with constructor functions
 eqeqeq:   true     # true if === should be required (for ALL equality comparisons)
 immed:    true     # true if immediate function invocations must be wrapped in parens
-nomen:    true     # true if initial or trailing underscore in identifiers should be forbidden
+nomen:    false     # true if initial or trailing underscore in identifiers should be forbidden
 onevar:   true     # true if only one var statement per function should be allowed
 plusplus: true     # true if ++ and -- should not be allowed
 regexp:   true     # true if . and [^...] should not be allowed in RegExp literals
