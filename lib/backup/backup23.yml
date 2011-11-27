@@ -1,0 +1,30 @@
+tasks:
+  - name: web
+    source: dir
+    dir: ~/web/wedv/app/
+    destinations:
+      - dir: ~/web/wdcv/shared/backup/web/
+      - dir: ~/tmp3/
+      - aws_s3:
+
+  - name: db 
+    source: mongodb
+    destinations:
+      - dir: ~/web/wdcv/shared/backup/db/
+      - aws_s3:
+
+default_options:
+  name: backup
+  source: dir
+  dir: ~/tmp/
+  mongodb: wdcv_development
+  destinations: 
+    - dir: ~/tmp2/
+    - aws_s3:
+        bucket: '<%= ENV['WDCV_AWS_S3_BUCKET_NAME'] %>'
+        access_key_id: '<%= ENV['WDCV_AWS_S3_ACCESS_KEY_ID'] %>'
+        secret_access_key: '<%= ENV['WDCV_AWS_S3_SECRET_ACCESS_KEY'] %>'
+  encryption_passphrase: '<%= ENV['WDCV_BACKUP_ENCRYPTION_PASSPHRASE'] %>'
+
+  # Uses system tmp folder if 'tmp_dir' is not defined 
+  #tmp_dir: /tmp/  

@@ -1,12 +1,12 @@
 require File.expand_path('../backup.rb',  __FILE__)
-module Dozmo  
-  class BackupDb < Dozmo::Backup
+module Backup23  
+  class BackupDb < Backup23::Backup
     def backup
       log Separator
       log "DB backup started"
       
       mongo_db_name='wdcv_development'
-      tmp_db_dump_path = File.join(@tmp_path, "mongo_dump")
+      tmp_db_dump_path = File.join(tmp_path, "mongo_dump")
       remove_tmp_dump_folder tmp_db_dump_path
       
       log_or_exit_on_shell_error("dumping MongoDB database '#{mongo_db_name}' to #{tmp_db_dump_path} ...") {
@@ -14,7 +14,7 @@ module Dozmo
       }
       log "Error dumping monogoDB", true unless Dir.exists? tmp_db_dump_path
       
-      this_backup_path = File.join(@backup_path, "db")
+      this_backup_path = File.join(backup_path, "db")
       FileUtils.mkpath this_backup_path unless File.directory?(this_backup_path)
 
       path_to_archive_no_extension = File.join(this_backup_path, "db-#{to_filename(backup_filename)}")
