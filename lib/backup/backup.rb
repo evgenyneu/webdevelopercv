@@ -16,6 +16,7 @@ module Backup23
     
     def initialize
       @app_path = File.expand_path('../../../', __FILE__)
+      Log.verbose = true
       Log.log_file_path = File.join(app_path,"log","backup23.log")
       Log.backup = self
       load_options

@@ -1,22 +1,31 @@
 tasks:
   - name: web
-    source: dir
-    dir: ~/web/wedv/app/
+    source: files
+
+    files: 
+      - ~/tmp/src/dir1
+      - ~/tmp/src/dir2
+      - ~/tmp/src/file1
+
+    exclude_files:
+      - ignore.file
+      - "*.tmp"
+      - "sub1/"
+      
     destinations:
-      - dir: ~/web/wdcv/shared/backup/web/
-      - dir: ~/tmp3/
+      - dir: ~/tmp/dest/2
+      - dir: ~/tmp/dest/1
       - aws_s3:
 
   - name: db 
     source: mongodb
     destinations:
-      - dir: ~/web/wdcv/shared/backup/db/
+      - dir: ~/tmp/dest/1
       - aws_s3:
 
 default_options:
   name: backup
-  source: dir
-  dir: ~/tmp/
+  source: files
   mongodb: wdcv_development
   destinations: 
     - dir: ~/tmp2/
@@ -27,4 +36,4 @@ default_options:
   encryption_passphrase: '<%= ENV['WDCV_BACKUP_ENCRYPTION_PASSPHRASE'] %>'
 
   # Uses system tmp folder if 'tmp_dir' is not defined 
-  #tmp_dir: /tmp/  
+  #tmp_dir: ~/tmp/  
