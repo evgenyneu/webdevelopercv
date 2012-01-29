@@ -1,24 +1,23 @@
 module Backup23
   class SourceFiles < Source
-    attr_accessor :exclude_files
+    attr_accessor :exclude
 
-    def initialize(task)
+    def initialize(type, task)
       super
-      @exclude_files = task.options["exclude_files"]
-      unless @exclude_files.nil?
-        Raise TaskError, "'exclude_files' options should be Array" unless @exclude_files.is_a? Array
 
-        @exclude_files.delete_if {|item| item.strip == ""}
-        if @exclude_files.empty?
-          @exclude_files = nil
+      @exclude = @options["exclude"]
+      unless @exclude.nil?
+        Raise TaskError, "'exclude' options should be Array" unless @exclude.is_a? Array
+
+        @exclude.delete_if {|item| item.strip == ""}
+        if @exclude.empty?
+          @exclude = nil
         end
 
-        unless @exclude_files.nil?
-          @exclude_files.map! do |exclude|
+        unless @exclude.nil?
+          @exclude.map! do |exclude|
             exclude.strip!
-            exclude[0] = '' if exclude[0] == "/"
-            exclude = "**/" + exclude
-            exclude[-1] = '*' if exclude[-1] == '/'
+            exclude = "**/" + exclude if exclude[0] == "/"
             exclude
           end
         end
@@ -45,10 +44,12 @@ module Backup23
     end
 
     def included?(file, is_dir = false)
-      return true if exclude_files.nil?
+      return true if exclude.nil?
       include_file = true 
-      exclude_files.each do |exclude|
-        if exclude.casecmp(File.basename(file)) == 0 || File.fnmatch(exclude, file, File::FNM_CASEFOLD)
+      exclude.each do |exclude|
+        basename = File.basename(file))
+        if exclude.casecmp(basename) == 0 || File.fnmatch(exclude, file, File::FNM_CASEFOLD)
+            || (is_dir && exclude.casecmp(basename + '/'))
           include_file = false
           break
         end 

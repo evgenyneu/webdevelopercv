@@ -3,14 +3,14 @@ tasks:
     source: files
 
     files: 
-      - ~/tmp/src/dir1
-      - ~/tmp/src/dir2
-      - ~/tmp/src/file1
-
-    exclude_files:
-      - ignore.file
-      - "*.tmp"
-      - "sub1/"
+      sources:
+        - ~/tmp/src/dir1
+        - ~/tmp/src/dir2
+        - ~/tmp/src/file1
+      exclude:
+        - ignore.file
+        - "*.tmp"
+        - "sub1/"
       
     destinations:
       - dir: ~/tmp/dest/2

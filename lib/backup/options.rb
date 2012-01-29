@@ -7,6 +7,10 @@ module Backup23
       @default_options = default_options
     end
 
+    def get_deep_new(key)
+      Options.new(self[key], @default_options.nil? ? nil : @default_options[key])
+    end
+
     def [](keys)
       value = Options.hash_deep_get(@data, keys)
       value = @default_options[keys] if value.nil? && !@default_options.nil? 
