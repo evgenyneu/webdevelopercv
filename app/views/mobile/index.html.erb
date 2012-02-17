@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link class="jsbin" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script>
+      $(document).bind("mobileinit", function(){
+        $.mobile.pushStateEnabled = false
+        $.mobile.changePage.defaults.allowSamePageTransition = true
+        $(document).bind("pagebeforechange", function (e, data) {
+          if (typeof data.toPage === "string") {        
+            $("#toPage").html(data.toPage);
+            $.mobile.changePage($(".myPage"),{dataUrl: "#page/"});
+            e.preventDefault();
+          }
+        });
+      });
+    </script>
+    <script class="jsbin" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+    <meta charset=utf-8 />
+    <title>jQueryMobile toPage URL test</title>
+  </head>
+  <body>    
+    <div data-role="page" class="myPage">
+      <div data-role="content">
+        <p>The page shows incosistency of toPage parameter which is passed to pagebeforechange event handler. The same URL is reached by click and hashchange events. toPage URLs returned are different.</p>
+        <p>1. <b>Click event.</b> Click on the link below. toPage will be an absolute URL.</p>
+        <p>2. <b>Hashchange event.</b> Refresh the page (F5). toPage will be a relative URL: "page/"</p>
+        <a href="#page/">Link</a><br /><br />
+        toPage: <span id="toPage"></span>
+      </div>
+    </div>
+  </body>
+</html>
