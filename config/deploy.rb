@@ -4,12 +4,12 @@ set :keep_releases, 5
 
 set :user, "www"
 set :application, "wdcv"
-set :domain, 'morekot.ru'
+set :domain, 'webdevelopercv.com'
 
 ssh_options[:forward_agent] = true
 
 set :scm, 'git'
-set :repository,  "ssh://www@morekot.ru/~/git/wdcv.git"
+set :repository,  "ssh://www@webdevelopercv.com/~/git/wdcv.git"
 set :branch, "master"
 set :git_shallow_clone, 1
 
