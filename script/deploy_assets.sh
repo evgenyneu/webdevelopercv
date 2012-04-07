@@ -34,7 +34,7 @@ if ! cd $app_path_root ; then mylog "cannot cd to ${app_path_root}" 0 ; fi
 remove_local_assets
 
 mylog "removing old assets on web server..."
-ssh www@morekot.ru 'bash -s' < script/remove_old_assets.sh
+ssh www@webdevelopercv.com 'bash -s' < script/remove_old_assets.sh
 if [ "$?" -ne "0" ]; then
   mylog "Error removing old remote assets" 0
 fi
@@ -48,7 +48,7 @@ fi
 if ! cd $assets_path ; then mylog "cannot cd to ${assets_path}" 0 ; fi
 
 mylog "copying local assets to remote web site"
-sftp -b ../../script/upload_assets.sftp www@morekot.ru:"${app_folder}/shared/assets"
+sftp -b ../../script/upload_assets.sftp www@webdevelopercv.com:"${app_folder}/shared/assets"
 if [ "$?" -ne "0" ]; then
   mylog "Error copying local assets to web server" 0
 fi
