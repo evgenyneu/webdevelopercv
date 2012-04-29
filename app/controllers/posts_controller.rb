@@ -21,10 +21,13 @@ class PostsController < AuthorisedController
       format.html
       format.xml  { render :xml => @post }
       format.pdf {
-        pdf_content = PDFKit.new(render_to_string layout: "print", formats: [:html]).to_pdf
+        view_string = render_to_string layout: "print", formats: [:html]
+        logger.info "!!!!! view: #{view_string}"
+        pdf_content = PDFKit.new(view_string).to_pdf
+        logger.info "!!!!! pdf: #{pdf_content}"
         send_data pdf_content,
-                  type: 'application/pdf'
-                  #filename: "#{@post.title.z_to_url}.pdf"
+                  type: 'application/pdf',
+                  filename: "#{@post.title.z_to_url}.pdf"
       }
     end
   end
