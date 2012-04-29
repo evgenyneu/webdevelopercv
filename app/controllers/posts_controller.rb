@@ -23,7 +23,7 @@ class PostsController < AuthorisedController
       format.pdf {
         view_string = render_to_string layout: "print", formats: [:html]
         logger.info "!!!!! view: #{view_string}"
-        pdf_content = PDFKit.new(view_string).to_pdf
+        pdf_content = "hi"#PDFKit.new(view_string).to_pdf
         logger.info "!!!!! pdf: #{pdf_content}"
         send_data pdf_content,
                   type: 'application/pdf',
