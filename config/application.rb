@@ -69,7 +69,7 @@ module Wdcv
     # need to specify the path to executable explicitely
     # because it is not found in production, for some reason
     PDFKit.configure do |config|
-      config.wkhtmltopdf = '/usr/bin/wkhtmltopdf'
+      config.wkhtmltopdf = '/usr/bin/wkhtmltopdf '
     end
   end
 end
