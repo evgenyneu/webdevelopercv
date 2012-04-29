@@ -65,5 +65,11 @@ module Wdcv
     config.action_mailer.default_url_options = { :host => 'webdevelopercv.com' }
 
     config.action_mailer.smtp_settings = { :enable_starttls_auto => false }
+
+    # need to specify the path to executable explicitely
+    # because it is not found in production, for some reason
+    PDFKit.configure do |config|
+      config.wkhtmltopdf = '/usr/bin/wkhtmltopdf'
+    end
   end
 end
