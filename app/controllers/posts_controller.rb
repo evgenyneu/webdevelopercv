@@ -14,12 +14,18 @@ class PostsController < AuthorisedController
   # GET /posts/1.xml
   def show
     @post = Post.by_permalink params[:permalink]
-    
+
     not_found if @post.nil?
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.xml  { render :xml => @post }
+      format.pdf {
+        pdf_content = PDFKit.new(render_to_string layout: "print", formats: [:html]).to_pdf
+        send_data pdf_content,
+                  type: 'application/pdf',
+                  filename: "#{@post.title.z_to_url}.pdf"
+      }
     end
   end
 

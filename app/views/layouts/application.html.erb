@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= ((defined? @page_title).nil? || @page_title.empty?) ? "WebWeveloperCV.com" : @page_title %></title>  
   <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "print", media: :print %>
   <%= javascript_include_tag "application" %>  
   <%= yield :head %>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> 
@@ -28,24 +29,24 @@
     <% end %>
     <% unless alert.nil? %>
       <div class="alert hidden"><%= alert %></div>
-    <% end %>    
-    <div data-role="header" data-theme="e">
+    <% end %>
+    <div data-role="header" data-theme="e" class="hidden-in-print">
       <% if content_for?(:custom_header) %>
         <%= yield(:custom_header) %>
       <% elsif %>
-        <a href="/" data-icon="home" data-iconpos="notext" title="Home"></a>      
+        <a href="/" data-icon="home" data-iconpos="notext" title="Home"></a>
         <h2 class="centered"><a href="/">WebDeveloperCV.com</a></h2>
-      <% end %>   
+      <% end %>
       <%= yield :header %>
-    </div>    
-    <div data-role="content" data-theme="a" class="wdcv-content">        
-        <%= yield %>                  
     </div>
-    <div data-role="footer" data-theme="e">        
+    <div data-role="content" data-theme="a" class="wdcv-content">
+        <%= yield %>
+    </div>
+    <div data-role="footer" data-theme="e" class="hidden-in-print">
       <% if user_signed_in? %>
         <%= link_to "Log out", destroy_user_session_path, :class=>"panel-right absolute", :method => :delete, "data-icon" => "back", "data-iconpos" => "right", "data-ajax" => "false", "title"=>"Sign out" %>
       <% end %>
-      <h2 class="centered">©2011 <a href="#" class="Cmuercehot">Evgeny Neumerzhitskiy</a></h2>        
+      <h2 class="centered">©2011 <a href="#" class="Cmuercehot">Evgeny Neumerzhitskiy</a></h2>
     </div>
   </div>
 </body>

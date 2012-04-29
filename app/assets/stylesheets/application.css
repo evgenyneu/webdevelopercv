@@ -8,5 +8,6 @@
  *= require assorted 
  *= require scaffold 
  *= require layout 
- *= require_tree . 
+ *= require javascript-game 
+ *= require_tree ./pages
 */

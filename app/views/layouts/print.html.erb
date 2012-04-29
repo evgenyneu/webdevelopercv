@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= ((defined? @page_title).nil? || @page_title.empty?) ? "WebWeveloperCV.com" : @page_title %></title>  
+  <style type="text/css">
+    <%= IO.read(File.join(Rails.root, "app/assets/stylesheets/print.css")).html_safe %>
+  </style>
+</head>
+<body>
+  <%= yield %>
+</body>
+</html>

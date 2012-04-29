@@ -6,10 +6,12 @@ Wdcv::Application.routes.draw do
   resources :posts, :except => :show
 
   get "mobile" => "mobile#index"
+  get "mobile/two"
 
   get "test/index"
 
   get "test" => "test#index"
+  get "test/two"
   
   get "projects" => "home#projects"
   

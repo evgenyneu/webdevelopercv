@@ -9,6 +9,7 @@ gem "mongoid"
 gem "bson_ext"
 gem "devise"
 gem "cancan"
+gem "pdfkit"
 
 # Gems used only for assets and not required
 # # in production environments by default.
@@ -18,7 +19,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails', '2.0.1' 
+gem 'jquery-rails', '2.0.1'
 
 group :test do
   # Pretty printed test output

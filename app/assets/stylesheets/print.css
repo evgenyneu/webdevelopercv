@@ -1,0 +1,9 @@
+/* styles for print media */
+.hidden-in-print,
+.ui-loader,
+.ui-page {
+  display: none;
+}
+.ui-page.ui-page-active {
+  display: block;
+}
