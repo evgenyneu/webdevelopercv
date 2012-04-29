@@ -23,8 +23,8 @@ class PostsController < AuthorisedController
       format.pdf {
         pdf_content = PDFKit.new(render_to_string layout: "print", formats: [:html]).to_pdf
         send_data pdf_content,
-                  type: 'application/pdf',
-                  filename: "#{@post.title.z_to_url}.pdf"
+                  type: 'application/pdf'
+                  #filename: "#{@post.title.z_to_url}.pdf"
       }
     end
   end
