@@ -80,4 +80,8 @@ td{
 th.top, td.top{ 
     border-top:dotted #C90 1px;
 }
+/* --- Table END --- */
+i{
+  font-style: italic;
+}
 /* --------- General HTML Elements END --------- */
