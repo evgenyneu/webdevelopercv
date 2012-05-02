@@ -48,10 +48,17 @@ hr {
   margin:0 0 1em 0;
   height:1px;
 }
+/* set image max width to 100% */
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
 
 /* --- lists --- */
 ul, ol {
-    margin: 1em 0 1.5em 2.5em;    
+    margin: 1em 0 1.5em 0;    
+    padding-left: 25px;
 }
 li {
     margin: 0 0 0.5em 0;
@@ -81,7 +88,4 @@ th.top, td.top{
     border-top:dotted #C90 1px;
 }
 /* --- Table END --- */
-i{
-  font-style: italic;
-}
 /* --------- General HTML Elements END --------- */
