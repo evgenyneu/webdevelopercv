@@ -8,7 +8,9 @@
 
   <% unless @post.title.blank? %>
     <h1 class="bottom"><%= @post.title %></h1>
-    <p class='hidden-in-print'><%= posted_on_message(@post.created_at) %></p>
+    <% unless @post.sub_title.try :empty? %>
+      <h2 class='wdcv-sub-title'><%= @post.sub_title %></h2>
+    <% end %>
   <% end %>
   <%= raw(@post.body_for_html(@random_str)) %>
   <% if can? :update, @post %>
