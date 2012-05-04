@@ -3,7 +3,9 @@
     <li>
       <a href="<%= post.permalink %>">
         <h1><%= post.title %></h1>
-        <p class="humble"><%= posted_on_message(post.created_at) %></p>
+        <% unless post.sub_title.try :empty? %>
+          <p><%= post.sub_title %></p>
+        <% end %>
         <% if can? :update, @post %>
           <%= link_to 'Edit post', edit_post_path(post, :return_url=>request.env["PATH_INFO"]), "data-role"=>"button", "data-icon"=>"gear", "data-theme"=>"e", "data-ajax"=>"false" %>
         <% end %>
