@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree ./templates
 //= require evgn-jqm 
 //= require obscure-email 
 //= require jquery.mobile
