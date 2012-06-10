@@ -33,18 +33,18 @@ namespace :deploy do
   end
 
   desc "Create symlinks"
-  task :generate_symlinks do
+  task :my_generate_symlinks do
     run %Q{mkdir -p #{shared_path}/assets && ln -s #{shared_path}/assets #{release_path}/public/assets}
   end
 end
 
-namespace :rake do  
-  desc "Run a task on a remote server."  
+namespace :rake do
+  desc "Run a task on a remote server."
   # run like: cap rake:invoke task=a_certain_task  
-  task :invoke do  
-    run("cd #{deploy_to}/current; /usr/bin/env rake #{ENV['task']} RAILS_ENV=production")  
-  end  
+  task :invoke do
+    run("cd #{deploy_to}/current; /usr/bin/env rake #{ENV['task']} RAILS_ENV=production")
+  end
 end
 
 after "deploy:update", "deploy:cleanup"
-after 'deploy:symlink', 'deploy:generate_symlinks'
+after 'deploy:create_symlink', 'deploy:my_generate_symlinks'
