@@ -6,6 +6,7 @@ tmp/
 .sass-cache/
 *.swp
 /shared/
+/public/assets
 
 nbproject/
 
