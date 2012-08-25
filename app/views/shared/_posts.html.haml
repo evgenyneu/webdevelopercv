@@ -1,0 +1,12 @@
+%ul{:"data-role" => "listview", :"data-theme" => "d"}
+  - @posts.each do |post|
+    %li
+      %a{href:post.permalink}
+        %h1= post.title
+        - unless post.sub_title.try :empty?
+          %p= post.sub_title
+        - if can? :update, @post
+          = link_to 'Edit post', edit_post_path(post, :return_url=>request.env["PATH_INFO"]), "data-icon"=>"gear", "data-theme"=>"e", "data-ajax"=>"false"
+- content_for :header do
+  - if can? :create, @post
+    = link_to 'New post', new_post_path, "data-role"=>"button", "data-icon"=>"plus", "data-iconpos" => "right", "data-inline"=>"true", "data-ajax" => "false"
