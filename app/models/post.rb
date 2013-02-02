@@ -7,8 +7,8 @@ class Post
   field :permalink, type: String
   field :body, type: String
 
-  index :title, unique: true
-  index :permalink, unique: true
+  index({ title: 1 }, { unique: true })
+  index({ permalink: 1 }, { unique: true })
 
   attr_writer :date
 

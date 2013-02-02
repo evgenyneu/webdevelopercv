@@ -1,22 +1,24 @@
 development:
-  host: localhost
-  database: wdcv_development
-
+  sessions:
+    default:
+      database: wdcv_production
+      hosts:
+        - localhost:27017
+development:
+  sessions:
+    default:
+      database: wdcv_development
+      hosts:
+        - localhost:27017
 test:
-  host: localhost
-  database: wdcv_test
-
-# set these environment variables on your prod server
-production:
-  host: localhost
-  database: wdcv_production
-  #host: <%= ENV['MONGOID_HOST'] %>
-  #port: <%= ENV['MONGOID_PORT'] %>
-  #username: <%= ENV['MONGOID_USERNAME'] %>
-  #password: <%= ENV['MONGOID_PASSWORD'] %>
-  #database: <%= ENV['MONGOID_DATABASE'] %>
-  # slaves:
-  #   - host: slave1.local
-  #     port: 27018
-  #   - host: slave2.local
-  #     port: 27019
+  sessions:
+    default:
+      database: wdcv_test
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+        # In the test environment we lower the retries and retry interval to
+        # low amounts for fast failures.
+        max_retries: 1
+        retry_interval: 0
