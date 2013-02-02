@@ -32,6 +32,11 @@ namespace :deploy do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
+  desc "Bundle install"
+  task :bundle_install do
+    run "cd #{current_path} && bundle install"
+  end
+
   desc "Create symlinks"
   task :my_generate_symlinks do
     run %Q{mkdir -p #{shared_path}/assets && ln -s #{shared_path}/assets #{release_path}/public/assets}
@@ -47,4 +52,4 @@ namespace :rake do
 end
 
 after "deploy:update", "deploy:cleanup"
-after 'deploy:create_symlink', 'deploy:my_generate_symlinks'
+after 'deploy:create_symlink', 'deploy:bundle_install', 'deploy:my_generate_symlinks'
