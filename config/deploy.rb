@@ -34,7 +34,7 @@ namespace :deploy do
 
   desc "Bundle install"
   task :bundle_install do
-    run "cd #{current_path} && bundle install"
+    run "cd #{current_path} && /home/www/.rbenv/shims/bundle install"
   end
 
   desc "Create symlinks"
