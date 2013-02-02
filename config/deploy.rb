@@ -1,5 +1,6 @@
 set :use_sudo, false
 default_run_options[:pty] = true
+default_environment['PATH'] = '/home/www/.rbenv/bin'
 set :keep_releases, 5
 
 set :user, "www"
