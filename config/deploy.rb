@@ -1,6 +1,6 @@
 set :use_sudo, false
 default_run_options[:pty] = true
-default_environment['PATH'] = '/home/www/.rbenv/shims:/home/www/.rbenv/bin'
+default_environment['PATH'] = '/home/www/.rbenv/shims:/home/www/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin'
 set :keep_releases, 5
 
 set :user, "www"
