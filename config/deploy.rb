@@ -41,6 +41,11 @@ namespace :deploy do
   task :my_generate_symlinks do
     run %Q{mkdir -p #{shared_path}/assets && ln -s #{shared_path}/assets #{release_path}/public/assets}
   end
+
+  desc "Set permissions"
+  task :set_permissions do
+    run %Q{chmod u+x #{release_path}/script/cron-wrapper}
+  end
 end
 
 namespace :rake do
@@ -52,4 +57,4 @@ namespace :rake do
 end
 
 after "deploy:update", "deploy:cleanup"
-after 'deploy:create_symlink', 'deploy:bundle_install', 'deploy:my_generate_symlinks'
+after 'deploy:create_symlink', 'deploy:bundle_install', 'deploy:my_generate_symlinks', 'deploy:set_permissions'
