@@ -11,6 +11,6 @@ chmod +x /usr/local/bin/wkhtmltopdf
 
 2. Add backup tasks to crontab
 
-59 07 * * *  ~/dozmo.com/current/script/cron-wrapper siba b backup/wdcv/wdcv-db.yml
-00 05 * * *  ~/dozmo.com/current/script/cron-wrapper siba b backup/wdcv/wdcv-web.yml
+53 14 * * *  /home/www/webdevelopercv.com/current/script/cron-wrapper siba b backup/wdcv/wdcv-db.yml
+51 14 * * *  /home/www/webdevelopercv.com/current/script/cron-wrapper siba b backup/wdcv/wdcv-web.yml
 
