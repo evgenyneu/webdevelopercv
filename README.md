@@ -1,6 +1,6 @@
 # Overview
 
-This is a repository for my personal web site [webdevelopercv.com](http://webdevelopercv.com).
+This is a repository of my personal web site containing a resume page and a list of accomplished projects [webdevelopercv.com](http://webdevelopercv.com).
 
 ## Installing WDCV
 
