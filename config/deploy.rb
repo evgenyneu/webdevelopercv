@@ -9,7 +9,7 @@ set :domain, 'webdevelopercv.com'
 ssh_options[:forward_agent] = true
 
 set :scm, 'git'
-set :repository,  "ssh://www@webdevelopercv.com/~/git/wdcv.git"
+set :repository,  "git://github.com/evgenyneu/webdevelopercv.git"
 set :branch, "master"
 set :git_shallow_clone, 1
 
