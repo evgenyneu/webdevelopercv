@@ -1,11 +1,12 @@
 class EvgnJQM
   constructor: ->
     _this = @
-    $('div').live 'pageshow', (event, ui) ->
-      _this.showNotifications()
-      try
-        _gaq.push(['_trackPageview', $(this).data('url')]) if _gaq?
-      catch error
+    $(document).on("mobileinit", ->
+      $(document).on('pageshow', (event, ui) ->
+        _this.showNotifications()
+        try
+          _gaq.push(['_trackPageview', $(this).data('url')]) if _gaq?
+        catch error))
 
   showMessage: (message, isAlert = false, encodeMessage = true) ->
     message = zStr.htmlEncode(message) if encodeMessage
